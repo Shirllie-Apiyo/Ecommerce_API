@@ -9,3 +9,5 @@ Ecommerce backend in Nodejs
 7. npm install multer --save
 8. to test your application console.log("hello") on app.js
 9. to run :nodemon app.js
+10. configure nodemon in package.json by erasing the test and type "start": "nodemon app.js"
+11. to start nodemon type npm start on the terminal
