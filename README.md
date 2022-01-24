@@ -11,3 +11,4 @@ Ecommerce backend in Nodejs
 9. to run :nodemon app.js
 10. configure nodemon in package.json by erasing the test and type "start": "nodemon app.js"
 11. to start nodemon type npm start on the terminal
+12 go to cloud.mongodb and create your account and cluster and connect to your db
