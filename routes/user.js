@@ -6,9 +6,9 @@ router.get("/usertest", (req,res) =>{
 
 //localhost:5000/api/user/usertest
 
-router.post("userposttest",(req,res)=>{
+router.post("/userposttest",(req,res)=>{
     const username = req.body.username;
-    console.log(username);
+    res.send("your username is" +username);
 });
 
 
