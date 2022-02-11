@@ -7,7 +7,7 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderRoute = require("./routes/order");
-// const stripeRoute = require("./routes/stripe");
+const mpesaRoute = require("./routes/mpesa");
 const cors = require("cors");
 
 
@@ -27,7 +27,7 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
-// app.use("/api/checkout", stripeRoute);
+app.use("/api/checkout", mpesaRoute);
 
 
 app.listen(process.env.PORT || 5000, () =>{

@@ -47,19 +47,50 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //GET PRODUCT
-router.get("/find/:id", async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id);
-    res.status(200).json(product);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+// router.get("/find/:id", async (req, res) => {
+//   try {
+//     const product = await Product.findById(req.params.id);
+//     res.status(200).json(product);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+router.route('/find/:id').get((req,res) =>
+{
+    Product.findById(req.params.id, (error,data)=>
+    {
+        if (error){
+            if (data==null){
+                res.status(404).json({'message':"Employee not found"})
+            }
+            else{
+                res.status(400).json({'message':"There was an error"})
+            }
+        }
+        else{
+            if(data==null){
+                res.status(404).json({'message':"Employee Not Found"})
+            }
+            else{
+                res.status(200).json(data)
+            }
+            
+        }
+
+    })
+
 });
+
+
+
 
 //GET ALL PRODUCTS
 router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
+  // const qBrand = req.query.brand;
+  // const  qSubCategory = req.query.sub_category;
   try {
     let products;
 
@@ -67,7 +98,7 @@ router.get("/", async (req, res) => {
       products = await Product.find().sort({ createdAt: -1 }).limit(1);
     } else if (qCategory) {
       products = await Product.find({
-        categories: {
+        category: {
           $in: [qCategory],
         },
       });
