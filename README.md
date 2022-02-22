@@ -1,5 +1,7 @@
 # Ecommerce_API
+
 Ecommerce backend in Nodejs
+
 1. create an app.js file
 2. npm init -y - for package .json
 3. npm install express mongoose dotenv nodemon
@@ -14,3 +16,6 @@ Ecommerce backend in Nodejs
 12. go to cloud.mongodb and create your account and cluster and connect to your db
 13. To secure your database name and password create an env file and in that file create a url and link the env file with the app.js file.
 14. create a REST api. To test it run localhost:5000/api/test if that is your end point and it will reload on the terminal.
+
+npm i axios
+npm i dotenv
