@@ -150,4 +150,30 @@ router.get("/getslider", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.route('/single/:id').get((req,res) =>
+{
+    Product.findById(req.params.id, (error,data)=>
+    {
+        if (error){
+            if (data==null){
+                res.status(404).json({'message':"product not found"})
+            }
+            else{
+                res.status(400).json({'message':"There was an error"})
+            }
+        }
+        else{
+            if(data==null){
+                res.status(404).json({'message':"product Not Found"})
+            }
+            else{
+                res.status(200).json(data)
+            }
+            
+        }
+
+    })
+
+});
 module.exports = router;
