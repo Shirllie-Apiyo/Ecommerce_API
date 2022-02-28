@@ -13,8 +13,8 @@ const ProductSchema = new mongoose.Schema(
         brand:{type:String},
         size:{ type:String},
         color:{type:String},
-        price:{ type:Number, required:true},
-        disc_price:{type:String, required:true}
+        price:{ type:String, required:true},
+        desc_price:{type:String, required:true}
 },
 {timestamps:true}
 );
