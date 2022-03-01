@@ -1,5 +1,6 @@
 const Product = require("../models/Product");
 const Slide = require("../models/Slide");
+const Message =require ("../models/Message")
 const {
   verifyToken,
   verifyTokenAndAuthorization,
@@ -115,6 +116,18 @@ router.get("/", async (req, res) => {
 
 router.post("/slider", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Slide(req.body);
+
+  try {
+    const savedProduct = await newProduct.save();
+    res.status(200).json(savedProduct);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// post message
+router.post("/review", async (req, res) => {
+  const newProduct = new Message(req.body);
 
   try {
     const savedProduct = await newProduct.save();
